@@ -27,7 +27,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest
       -
-        name: Pull Trigger
+        name: Send Hook To NodeJS Server
         run: |
           curl -X POST ${{ secrets.NODEJS_WEBHOOK_URL }} \
           --data image=${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \
