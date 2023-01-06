@@ -34,4 +34,5 @@ jobs:
           --data port=${{ secrets.AWS_SG_INBOUND_PORT }} \
           --data targetPort=${{ secrets.DOCKER_CONTAINER_PORT }} \
           --data startDate=${{ secrets.PROJECT_START_DATE }} \
-          --data endDate=${{ secrets.PROJECT_END_DATE }}
+          --data endDate=${{ secrets.PROJECT_END_DATE }} \
+          --data healthCheck=${{ secrets.HEALTH_CHECK_PATH }}
