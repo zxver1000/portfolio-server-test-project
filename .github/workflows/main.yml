@@ -32,4 +32,6 @@ jobs:
           curl -X POST ${{ secrets.NODEJS_WEBHOOK_URL }} \
           --data image=${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \
           --data port=${{ secrets.AWS_SG_INBOUND_PORT }} \
-          --data targetPort=${{ secrets.DOCKER_CONTAINER_PORT }}
+          --data targetPort=${{ secrets.DOCKER_CONTAINER_PORT }} \
+          --data startDate=${{ secrets.PROJECT_START_DATE }} \
+          --data endDate=${{ secrets.PROJECT_END_DATE }}
