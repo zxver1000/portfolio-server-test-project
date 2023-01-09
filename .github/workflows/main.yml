@@ -30,9 +30,13 @@ jobs:
         name: Send Hook To NodeJS Server
         run: |
           curl --request POST ${{ secrets.NODEJS_WEBHOOK_URL }} \
+          --data title=${{ secrets.PROJECT_TITLE}} \
           --data image=${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest \
           --data port=${{ secrets.AWS_SG_INBOUND_PORT }} \
           --data targetPort=${{ secrets.DOCKER_CONTAINER_PORT }} \
           --data startDate=${{ secrets.PROJECT_START_DATE }} \
           --data endDate=${{ secrets.PROJECT_END_DATE }} \
-          --data healthCheck=${{ secrets.HEALTH_CHECK_PATH }}
+          --data healthCheckPath=${{ secrets.HEALTH_CHECK_PATH }} \
+          --data healthCheckProtocol=${{ secrets.HEALTH_CHECK_PROTOCOL }} \
+          --data healthCheckPort=${{ secrets.HEALTH_CHECK_PORT }} \
+          --data projectInfo=${{ secrets.PROJECT_INFO_JSON }}
